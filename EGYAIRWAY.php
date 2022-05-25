@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Your Page Title</title>
+<title>Terms and privacy</title>
 
 <style type= "text/css" title="styleid" media="all">
 body { background-color:whitesmoke; color: black;
