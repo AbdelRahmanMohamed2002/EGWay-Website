@@ -15,10 +15,10 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "web project";
-session_start();
+echo "Welcome ".$_SESSION['Name'];
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-$query = "SELECT * FROM user WHERE `Usertype`='3'";
+$query = "SELECT * FROM comments";
 $result = mysqli_query($conn,$query);
  
 
@@ -28,10 +28,9 @@ $result = mysqli_query($conn,$query);
 <table class="table table-hover">
 <thead>
 <tr>
-
+    <th> User ID</th>
 	<th> Email</th>
-	<th>First Name</th>
-	<th>Last Name</th>
+	<th>comment</th>
 </tr>
 </thead>
 <?php
@@ -41,10 +40,9 @@ while($row = mysqli_fetch_array($result))
     
 ?>
 <tr>
-  
-	<td><?= $row['Email']; ?></td>
-	<td><?= $row['First Name']; ?></td>
-	<td><?=  $row['Last Name']; ?></td>
+<td><?= $row['User ID']; ?></td>
+	<td><?= $row['User Email']; ?></td>
+	<td><?= $row['Comment']; ?></td>
 </tr>
 <?php
  
