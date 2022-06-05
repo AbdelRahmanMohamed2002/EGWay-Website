@@ -1,0 +1,89 @@
+<html>
+<head>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<meta charset="utf-8" />
+ <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+ <link rel="stylesheet" href="mainn.css" />
+    <title> main page</title>
+</head>
+<nav class="header">
+<div id="mySidenav" class="sidenav">
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#About">About</a>
+  <a href="#customer"> customer Service</a>
+  <a href="#Quality">Quality Control</a>
+  <a href="#contact">Contact</a>
+</div>
+ <span class="shape" onclick="openNav()">menu
+</span>
+<a href="#login"class="button">login</a>
+<a href="#register"class="button">register</a>
+<a href="#makingorder"class="button">making order</a>
+<center>
+ 
+</nav>
+<body>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "300px";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+} 
+</script>
+<section>
+ <img src=" https://wallpapercave.com/wp/wp2025608.jpg" width="100%" height="70%">
+<a href="#makingorder"><button class="btn" >Get Started</button></a>
+</section>
+<section class=" cards" id="makingorder">
+<center>
+<p class="font">
+Top Destination
+</p>
+<hr class="line">
+<div class="content">
+<div class="card">
+<div class="icon">
+<a href="hurda.php"><img src="3.jpeg" width="100%" height="100%"/></a>
+</div>
+</div>
+<div class="card">
+<div class="icon">
+<a href="sharm.php"><img src="2.jpeg" width="100%" height="100%"/></a>
+</div>
+</div>
+<div class="card">
+<div class="icon">
+<a href="luxor.php"><img src="1.jpeg" width="100%" height="100%"/></a>
+</div>
+</div>
+</div>
+ <center>
+<p class="font">
+ALREADY BOOKING
+</p>
+<hr class="line">
+</center>
+<section class="counters">
+<center>
+<div class="counter">
+<div>
+<img src="luxor.jpg" width="60%" height="60%"/>
+<div class="count">+5000</div>
+<h3>LUXOR</h3>
+</div>
+<div>
+<img src="sharm.jpg" width="60%" height="60%"/>
+<div class="count">+7000</div>
+<h3>SHARM ELSHEIKH</h3>
+</div>
+<div>
+<img src=" hur.jpg" width="60%" height="60%"/>
+<div class="count">+10000</div>
+<h3>HURGHADA</h3>
+</div>
+</div>
+</center>
+</section>
+</body>
+</html>

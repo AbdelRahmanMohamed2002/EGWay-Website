@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>manger pin</title>
+    <link rel="stylesheet" href="mangerpin.css">
+</head>
+<body>
+    <button class="close" onclick="s()">edit</button>
+
+    <from method="post">
+        <div class="divv" id="div">
+            <input type="password" maxlength="6" class="in" id="check" id="d">
+            <button class="close" onclick="c()">sumbit</button>
+        </div>
+    </from>
+    <script>
+    function c() {
+  var x = document.getElementById("d").value;
+  if (x == "password") {
+    alert("12234");
+  } else {
+     alert("122");
+  }
+}
+    </script>
+
+    <script>
+        function s() {
+            document.getElementById("div").style.display = "block";
+            alert("please enter the manger pin code");
+
+
+        }
+    </script>
+
+
+</body>
+</html>
