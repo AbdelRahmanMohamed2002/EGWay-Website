@@ -15,7 +15,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "web project";
-echo "Welcome ".$_SESSION['Name'];
+echo "Welcome ".$_SESSION['Email'];
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 $query = "SELECT * FROM comments";
@@ -28,7 +28,6 @@ $result = mysqli_query($conn,$query);
 <table class="table table-hover">
 <thead>
 <tr>
-    <th> User ID</th>
 	<th> Email</th>
 	<th>comment</th>
 </tr>
@@ -40,7 +39,6 @@ while($row = mysqli_fetch_array($result))
     
 ?>
 <tr>
-<td><?= $row['User ID']; ?></td>
 	<td><?= $row['User Email']; ?></td>
 	<td><?= $row['Comment']; ?></td>
 </tr>
