@@ -23,19 +23,21 @@ if ($conn->connect_error) {
   
   if($row['userType']=='1')
   {
-    echo"<html><h1><a href='AdminHome.php'>AdminHome</a></html></h1>";
+   
+    
     $_SESSION['EMAIL']=$Email;
     $_SESSION['psw']=$Password;
   }
 else if($row['userType']=='2')
   {
-    echo"<h1><a href='customerservice.php'>CustomerHome</a></h1>";
+    header('Location: http://localhost/project/customerservice.php');
     $_SESSION['EMAIL']=$Email;
     $_SESSION['psw']=$Password;
   }
   else if($row['userType']=='3')
-  {
-    echo"<html><h1><a href='qc2.php'>QualityControlHome</h1></html></a>";
+  { header('Location: http://localhost/project/qc2.php');
+   
+    // echo"<html><h1><a href='qc2.php'>QualityControlHome</h1></html></a>";
     $_SESSION['EMAIL']=$Email;
     $_SESSION['psw']=$Password;
   }
@@ -46,7 +48,8 @@ else if($row['userType']=='2')
   else if($row['userType']=='4'&&$row['status1']=='1')
   {$_SESSION['EMAIL']=$Email;
     $_SESSION['psw']=$Password;
-    echo"<h1><a href='main_user.php'>airplaneform</a></h1>";
+    //echo"<h1><a href='main_user.php'>airplaneform</a></h1>";
+    header('Location: http://localhost/project/main_user.php');
   }
   // else if($row['userType']=='4'&&$row['status1']=='1'&&$_GET['pic']=='1')
   // {$_SESSION['EMAIL']=$Email;
