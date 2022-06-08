@@ -1,3 +1,5 @@
+<?php
+?>
 <style>
 table, th, td {
   border: 1px solid black;
@@ -14,8 +16,8 @@ include "qcmenu.php";
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "web project";
-echo "Welcome ".$_SESSION['Email'];
+$dbname = "flights";
+
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 $query = "SELECT * FROM comments";
@@ -28,6 +30,7 @@ $result = mysqli_query($conn,$query);
 <table class="table table-hover">
 <thead>
 <tr>
+    <th> User ID</th>
 	<th> Email</th>
 	<th>comment</th>
 </tr>
@@ -39,6 +42,7 @@ while($row = mysqli_fetch_array($result))
     
 ?>
 <tr>
+<td><?= $row['User ID']; ?></td>
 	<td><?= $row['User Email']; ?></td>
 	<td><?= $row['Comment']; ?></td>
 </tr>

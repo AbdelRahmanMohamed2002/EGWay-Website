@@ -51,9 +51,19 @@ a {
   background-color: #f1f1f1;
   text-align: center;
 }
+.button {
+	font-size: 1em;
+	padding: 15px 35px;
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 300ms ease-out;
+	background: #403e3d;
+	border-radius: 50px;
+}
 </style>
 <html>
-    
+<form action="main page.php"><button type="submit"  class="button"> Home</button></form>
     <body>
 <form action="signin12.php" method="post"  onsubmit="return SIG()" >
   <div class="container">

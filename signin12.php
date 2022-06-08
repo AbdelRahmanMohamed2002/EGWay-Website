@@ -1,7 +1,7 @@
 
 
 <?php
-session_start();
+// session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -35,7 +35,7 @@ else if($row['userType']=='2')
   }
   else if($row['userType']=='3')
   {
-    echo"<html><h1><a href='QualityControlHome.php'>QualityControlHome</h1></html></a>";
+    echo"<html><h1><a href='qc2.php'>QualityControlHome</h1></html></a>";
     $_SESSION['EMAIL']=$Email;
     $_SESSION['psw']=$Password;
   }
@@ -46,8 +46,23 @@ else if($row['userType']=='2')
   else if($row['userType']=='4'&&$row['status1']=='1')
   {$_SESSION['EMAIL']=$Email;
     $_SESSION['psw']=$Password;
-    echo"<h1><a href='airplaneform.php'>airplaneform</a></h1>";
+    echo"<h1><a href='main_user.php'>airplaneform</a></h1>";
   }
+  // else if($row['userType']=='4'&&$row['status1']=='1'&&$_GET['pic']=='1')
+  // {$_SESSION['EMAIL']=$Email;
+  //   $_SESSION['psw']=$Password;
+  //   echo"<h1><a href='luxor.php'>airplaneform</a></h1>";
+  // }
+  // else if($row['userType']=='4'&&$row['status1']=='1'&&$_GET['pic']=='2')
+  // {$_SESSION['EMAIL']=$Email;
+  //   $_SESSION['psw']=$Password;
+  //   echo"<h1><a href='sharm.php'>airplaneform</a></h1>";
+  // }
+  // else if($row['userType']=='4'&&$row['status1']=='1'&&$_GET['pic']=='3')
+  // {$_SESSION['EMAIL']=$Email;
+  //   $_SESSION['psw']=$Password;
+  //   echo"<h1><a href='hurda.php'>airplaneform</a></h1>";
+  // }
 
   else
   echo "not registerd";

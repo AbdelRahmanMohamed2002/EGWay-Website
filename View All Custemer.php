@@ -14,11 +14,11 @@ include "qcmenu.php";
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "web project";
-session_start();
+$dbname = "flights";
+
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-$query = "SELECT * FROM user WHERE `Usertype`='3'";
+$query = "SELECT * FROM user_details WHERE `Usertype`='3'";
 $result = mysqli_query($conn,$query);
  
 
@@ -43,8 +43,8 @@ while($row = mysqli_fetch_array($result))
 <tr>
   
 	<td><?= $row['Email']; ?></td>
-	<td><?= $row['First Name']; ?></td>
-	<td><?=  $row['Last Name']; ?></td>
+	<td><?= $row['First_Name']; ?></td>
+	<td><?=  $row['Last_Name']; ?></td>
 </tr>
 <?php
  

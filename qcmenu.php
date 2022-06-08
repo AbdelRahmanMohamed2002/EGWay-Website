@@ -1,5 +1,9 @@
+<?php
+session_start();
+?>
 <html>
 	<head>
+    <title>Quality control</title>
 		<style>
 .topnav{
     background-color: black;
@@ -57,16 +61,17 @@
 	<body>
     <div class="topnav">
 			<?php
-            echo "Welcome ".$_SESSION['Name'];
+            echo "Welcome ".$_SESSION['EMAIL'];
             ?>
-            </br>
- <a href="qc2.php">Home</a>
+            <br>
+         
+ <a href="qc2.php">QControl Home Page</a>
    <div class="dropdown">
   <button class="dropbtn">Custemer Service</button>
   <div class="dropdown-content">
     <a href="View All Custemer.php">View All</a>
-    <a href="#">Enable And Disable Accounts</a>
-    <a href="#">Promote Custemer Service to Quality Contro</a>
+    <a href="enable.php">Enable And Disable Accounts</a>
+    <a href="promote_Custemer.php">Promote Custemer Service to Quality Contro</a>
   </div>
 </div>
 <div class="dropdown">
@@ -77,8 +82,8 @@
   <button class="dropbtn">Rating Reports</button>
   <div class="dropdown-content">
   <a href="#">View All</a>
-    <a href="#">Enable And Disable Accounts</a>
-    <a href="#">Promote Custemer Service to Quality Contro</a>
+    <a href="enable.php">Enable And Disable Accounts</a>
+   
   </div>
 </div>
   </div>
@@ -86,9 +91,17 @@
 <div class="dropdown">
   <button class="dropbtn">Comments</button>
   <div class="dropdown-content">
-    <a href="#">View All Comments</a>
+    <a href="ViewAllComments.php">View All Comments</a>
   </div>
 </div>
-
+<div class="dropdown">
+  <button class="dropbtn">Users</button>
+  <div class="dropdown-content">
+    <a href="qualitycontrol.php">View All Users</a>
+  </div>
+</div>
+<div class="dropdown">
+<form action="main page.php" ><button class="dropbtn" type="submit"  class="button"> Home</button></form>
+</div>
 </div>
 </body>

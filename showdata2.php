@@ -1,3 +1,4 @@
+<title>update status</title>
 <?php
  include('header.php');
  $servername = "localhost";
@@ -9,7 +10,7 @@
  // Create connection
  $conn = new mysqli($servername, $username, $password, $dbname);
 if(isset($_POST['submit'])) {
-  $sql="UPDATE user_details set status='" . $_POST['status']  . "' WHERE Id='" .  $_GET['userid'] . "'";
+  $sql="UPDATE user_details set status1='" . $_POST['status']  . "' WHERE Id='" .  $_GET['userid'] . "'";
  
     mysqli_query($conn,$sql);
 $message = "Record Modified Successfully";
