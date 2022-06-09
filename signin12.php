@@ -1,5 +1,15 @@
-
-
+<style>
+button {
+	font-size: 1em;
+	padding: 15px 35px;
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 300ms ease-out;
+	background: #403e3d;
+	border-radius: 50px;
+}
+</style>
 <?php
 // session_start();
 $servername = "localhost";
@@ -16,7 +26,7 @@ if ($conn->connect_error) {
   $query = "SELECT * FROM user_details WHERE Email='$Email' AND Password1='$Password'";
   $result = mysqli_query($conn,$query);
   session_start();
-  while ($row = $result->fetch_assoc())
+  if ($row = $result->fetch_assoc())
   {
 
   
@@ -30,9 +40,10 @@ if ($conn->connect_error) {
   }
 else if($row['userType']=='2')
   {
-    header('Location: http://localhost/project/customerservice.php');
+    header('Location: http://localhost/project/Customer_service.php');
     $_SESSION['EMAIL']=$Email;
     $_SESSION['psw']=$Password;
+    
   }
   else if($row['userType']=='3')
   { header('Location: http://localhost/project/qc2.php');
@@ -43,14 +54,20 @@ else if($row['userType']=='2')
   }
   else if($row['userType']=='4'&&$row['status1']=='0')
   {
-   echo "<script>alert('the account is not activited');</script>";
+    
+   echo '<script>alert("the account is not activited")</script>';
+ 
+   header('Location: http://localhost/project/signin.php');
   }
+
   else if($row['userType']=='4'&&$row['status1']=='1')
   {$_SESSION['EMAIL']=$Email;
     $_SESSION['psw']=$Password;
     //echo"<h1><a href='main_user.php'>airplaneform</a></h1>";
     header('Location: http://localhost/project/main_user.php');
   }
+  
+  
   // else if($row['userType']=='4'&&$row['status1']=='1'&&$_GET['pic']=='1')
   // {$_SESSION['EMAIL']=$Email;
   //   $_SESSION['psw']=$Password;
@@ -67,7 +84,16 @@ else if($row['userType']=='2')
   //   echo"<h1><a href='hurda.php'>airplaneform</a></h1>";
   // }
 
-  else
-  echo "not registerd";
+ 
 }
+else
+{
+  
+echo "not registerd";
 ?> 
+<html>
+<form action="signin.php"><button type="submit"  class="button"> Sign in</button></form>
+</html>
+<?php
+}
+?>

@@ -42,29 +42,15 @@ hr {
 <html>
     <head></head>
     <body>
-<form action="forgetpassword.php" method= "post">
+<form action="forgetpassword2.php" method= "post" >
     <div class="container">
-<label for="email"><b>Email</b></label>
+<label for="email1"><b>Email</b></label>
     <input type="email" placeholder="Enter Email" name="email" id="email" required>
-    <input type="submit" value="submit" class="submit">
+    <input type="submit" value="submit" class="submit" name="save" id="save">
 </div>  
 </form>
-<?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
+<script>
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-// chec if the data existed
-$query = "SELECT password FROM products WHERE email = '$_POST[email]'";
- $result = $conn->query($query);
 
-?>
-</body>
-    </html>
+</script>
+ 
