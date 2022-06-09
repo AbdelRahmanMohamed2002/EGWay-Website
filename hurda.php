@@ -44,7 +44,12 @@ background-color:white;
 a{
 color:white;
 }
-
+.hide
+{
+	background-color:transparent;
+	border:none;
+	display: none;
+}
 </style>
 <section >
 <center>
