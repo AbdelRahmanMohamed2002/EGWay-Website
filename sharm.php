@@ -51,6 +51,7 @@ color:white;
 	display: none;
 }
 </style>
+<form action="main page.php"><button type="submit" class="button">Home</button></form>
 <section >
 <center>
 <p> Apply Form</p>
