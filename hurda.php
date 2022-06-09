@@ -70,13 +70,13 @@ color:white;
  </div>
 <div>
 <label for="Departure Date">Departure Date: </label>
-<input type="date" id="date" name="date" value="date" required>
+<input type="date" id="date" name="date" value="date"  min="2020-06-23" max="2020-06-29"required>
 </div>
 
 
 <div>
 <label for="Departure Date">Return Date: </label>
-<input type="date" id="dat" name="dat" value="dat" required>
+<input type="date" id="dat" name="dat" value="dat" min="2020-06-29" max="2020-07-30" required>
 </div>
 <div>
 <label for="Departure Time" >Departure Time: </label>
