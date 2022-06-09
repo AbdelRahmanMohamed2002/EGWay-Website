@@ -44,7 +44,12 @@ background-color:white;
 a{
 color:white;
 }
-
+.hide
+{
+	background-color:transparent;
+	border:none;
+	display: none;
+}
 </style>
 <section >
 <center>
@@ -132,8 +137,13 @@ color:white;
 <a href="https://www.egyptair.com/en/Documents/ConditionsOfCarriage.pdf">Condition of Carriage</a>
 </div>
 <div>
-<a href="visa code.php" class="button">book</a>
-<input type="submit" name="save" value="submit" class="button" >
+ <button class="hide" id="btn" ><a  href="visa code.php"  class="button">book</a></button>
+<button type="submit" name="save" value="submit" clas="button" id="save" onclick="myFunction()" >submit</button>
+ <script>
+function myFunction() {
+  document.getElementById("btn").style.display = "inline-block";
+   
+}
 </div>
 </form>
 </section>
