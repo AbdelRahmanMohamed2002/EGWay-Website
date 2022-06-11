@@ -121,10 +121,32 @@ $conn->close();
 </section>
 <section>
 <center>
-  <p>
+  <?php
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "flights";
+  $d=$_SESSION['EMAIL'];
+  $conn =  mysqli_connect($servername, $username, $password, $dbname);
+  
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+  
+  $sql=" SELECT(SELECT SUM((Adults*500+infant*2000+child*400)) FROM luxor WHERE email='$d' ) + (SELECT SUM((Adults*500+infant*2000+child*400))   FROM sharm WHERE email='$d')   +(SELECT SUM((Adults*500+infant*2000+child*400))   FROM hurda WHERE email='$d')as total;";
+  $result = $conn->query($sql);
+  
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+  echo "<p>
 <span>Total </span>
-<span>100</span>
-</p>
+<span>".$row["total"]."</span>
+</p>";
+    }
+  }
+  $conn->close();  
+?>
 </section>
 </center>
 <section>
