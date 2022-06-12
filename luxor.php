@@ -72,7 +72,7 @@ background-color:transparent;
   <input type="radio" id="One Way" name="Trip" value="One Way">
   <label for="One Way">One Way</label>
  
-  <input type="radio" id="returnlessthan7" name="Trip" value="returnlessthan7" required>
+  <input type="radio" id="returnlessthan7" name="Trip" value="returnlessthan7" onclick="before()">
   <label for="Round Trip">return less than 7</label>
   <input type="radio" id="returnafterthan7" name="Trip" value="returnafterthan7">
   <label for="returnafterthan7">return after than 7</label>
@@ -85,7 +85,7 @@ background-color:transparent;
 
 <div>
 <label for="Departure Date">Return Date: </label>
-<input type="date" id="dat" name="dat" value="dat" min="2020-06-29" max="2020-07-30" required>
+<input type="date" id="dat" name="dat" value="dat" min="2020-06-29" required>
 </div>
 <div>
 <label for="Departure Time" >Departure Time: </label>
@@ -189,5 +189,25 @@ echo "Error: " . $sql . "" . mysqli_error($con);
 mysqli_close($con);
 }
 ?>
+	  <script>
+ 
+	 function before() {
+var today = new Date();
+today.setDate(today.getDate() + 7);
+var dd = today.getDate();
+var mm = today.getMonth()+1;  
+var yyyy = today.getFullYear();
+if(dd<10){
+  dd='0'+dd
+} 
+if(mm<10){
+  mm='0'+mm
+} 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("dat").setAttribute("max", today);
+}
+	 
+</script>
 </body>
 </html>
