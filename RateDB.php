@@ -52,7 +52,7 @@ session_start();
         WHERE Ratings.email = '$in4'";
 
         if ($conn->query($insertion) == TRUE) {
-            echo "<h2>Rating sent ✓<h2>";
+            echo "<h2>Rating sent ✓ <br> Keep in mind you can only edit once!<h2>";
             header('Location: http://localhost/project/main_user.php');
         }
         else {
