@@ -109,11 +109,27 @@ form .textarea textarea{
   border: 1px solid #333;
   background: rgb(64, 64, 64);
   padding: 10px;
-  font-size: 17px;
+  font-size: 16px;
   resize: none;
 }
 .textarea textarea:focus{
-  border-color: rgb(105, 113, 69);
+  border-color: rgb(69, 120, 69);
+}
+form .inputs {
+  height: 40px;
+  width: 100%;
+  overflow: hidden;
+}
+form .inputs input[type=email]{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  color: #eee;
+  border: 1px solid #333;
+  background: rgb(64, 64, 64);
+  padding: 10px;
+  font-size: 16px;
+  resize: none;
 }
 form .btn{
   height: 45px;
