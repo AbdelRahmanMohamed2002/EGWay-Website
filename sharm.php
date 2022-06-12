@@ -86,7 +86,7 @@ background-color:transparent;
 
 <div>
 <label for="Departure Date">Return Date: </label>
-<input type="date" id="dat" name="dat" value="dat" required>
+<input type="date" id="dat" name="dat" min="2020-06-12" value="dat" required>
 </div>
 <div>
 <label for="Departure Time" >Departure Time: </label>
