@@ -6,18 +6,18 @@
  $servername = "localhost";
  $username = "root";
  $password = "";
- $dbname = "web project";
+ $dbname = "flights";
  session_start();
  
  // Create connection
  $conn = new mysqli($servername, $username, $password, $dbname);
 if(isset($_POST['submit'])) {
-  $sql="UPDATE user set enable='" . $_POST['status']  . "' WHERE id='" .  $_GET['userid'] . "'";
+  $sql="UPDATE user_details set userType='" . $_POST['status']  . "' WHERE id='" .  $_GET['userid'] . "'";
  
     mysqli_query($conn,$sql);
 $message = "Record Modified Successfully";
 }
-$result = mysqli_query($conn,"SELECT * FROM user WHERE id='" .  $_GET['userid'] . "'");
+$result = mysqli_query($conn,"SELECT * FROM user_details WHERE id='" .  $_GET['userid'] . "'");
 $row= mysqli_fetch_array($result);
 ?>
 <html>
@@ -35,8 +35,8 @@ $row= mysqli_fetch_array($result);
  
 status:<br>
 <select class="form-select" aria-label=".form-select-lg example" name="status" id="status" >
-  <option value="1"> enable </option>
-  <option value="0"> disable </option>
+  <option value="2"> customer service </option>
+  <option value="3">quality control  </option>
  <br>
  <br>
 <input type="submit" name="submit" value="Submit" class="buttom">

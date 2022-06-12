@@ -50,11 +50,21 @@ a {
   background-color: #f1f1f1;
   text-align: center;
 } 
+.button {
+	font-size: 1em;
+	padding: 15px 35px;
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 300ms ease-out;
+	background: #403e3d;
+	border-radius: 50px;
+}
     </style>
 <html>
     <title> Register</title>
     <body>
-<form action="singin.php" method="post" enctype="multipart/form-data" onsubmit="return confirmPassword()" onsubmit=" return reg()">
+<form action="register.php" method="post" enctype="multipart/form-data" onsubmit="return confirmPassword()">
   <div class="container">
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
@@ -88,9 +98,10 @@ a {
 </form>
 <script>
   
-function reg()
-{<?php
-  
+ 
+<?php
+ if(isset($_POST["submit"]))
+  {
 $target_dir = "photos/";
 $target_file1 = $target_dir . basename($_FILES["NationalIdbirthcertificate"]["name"]);
 $target_file2 = $target_dir . basename($_FILES["picture"]["name"]);
@@ -101,32 +112,32 @@ $imageFileType2 = strtolower(pathinfo($target_file2,PATHINFO_EXTENSION));
  
 
 // Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
+ 
   $check1 = getimagesize($_FILES["NationalIdbirthcertificate"]["tmp_name"]);
   $check2 = getimagesize($_FILES["picture"]["tmp_name"]);
   if($check1 !== false) {
-    echo "File is an image - " . $check1["mime"] . ".";
+    
     $uploadO1k = 1;
   } else {
     echo "File is not an image.";
     $uploadOk1 = 0;
   }
   if($check2 !== false) {
-    echo "File is an image - " . $check2["mime"] . ".";
+   
     $uploadOk2 = 1;
   } else {
     echo "File is not an image.";
     $uploadOk2 = 0;
   }
-}
+
 
 // Check if file already exists
 if (file_exists($target_file1)) {
-  echo '<script>alert("Sorry, National Id already exists.")</script>';
+  echo "<script>alert('Sorry, National Id already exists.')</script>";
   $uploadOk1 = 0;
 }
 if (file_exists($target_file2)) {
-  echo 'alert("Sorry, the picture already exists.") </script>';
+  echo "<script>alert('Sorry, the picture already exists.') </script>";
   $uploadOk2 = 0;
 }
 // Check file size
@@ -138,16 +149,16 @@ if (file_exists($target_file2)) {
 // Allow certain file formats
 if($imageFileType1 != "jpg" && $imageFileType1 != "png" && $imageFileType1 != "jpeg"
 &&  $imageFileType2 != "jpg" && $imageFileType2 != "png" && $imageFileType2 != "jpeg" ) {
-  echo '<script> alert("Sorry, only JPG, JPEG, PNG & GIF files are allowed.") </script>';
+  echo "<script> alert('Sorry, only JPG, JPEG, PNG & GIF files are allowed.') </script>";
   $uploadOk1 = 0;
 }
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk1 == 0 && $uploadOk2 == 0) {
-  echo  '<script> alert("file was not uploaded") </script>'  ;
+  echo  "<script> alert('file was not uploaded') </script>"  ;
 // if everything is ok, try to upload file
 } else {
-  if (move_uploaded_file($_FILES["NationalIdbirthcertificate"]["tmp_name"], $target_file1)&&move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file2)) {
+ 
     
     $servername = "localhost";
 $username = "root";
@@ -170,9 +181,10 @@ $q = "SELECT * FROM user_details WHERE Email = '$em' ";
 $re = mysqli_query($conn,$q);
 if ($re) {
   if (mysqli_num_rows($re) > 0) {
-    echo 'already exists!';
+    echo"<script> alert('already exists') </script>";
   } else {
-   
+    move_uploaded_file($_FILES["NationalIdbirthcertificate"]["tmp_name"], $target_file1);
+    move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file2);
     $query = "INSERT INTO user_details (Email, First_Name, Last_Name, Password1,Personal_Photo,ID_Photo,userType,status1) VALUES ('$em','$fn','$ln','$pp','$pfp','$picture_ID','4','0')";
  $result =$conn->query($query);
  echo'<script>alert("data is saved") </script>'  ;
@@ -181,12 +193,13 @@ if ($re) {
   
  
   } else {
-    echo '<script>alert("data is was saved") </script>;';
+    echo '<script>alert("data was not  saved") </script>;';
   }
+
 }
-}
+  }
 ?>
-}
+
 
 </script>
 </body>
@@ -194,6 +207,9 @@ if ($re) {
 function confirmPassword() {
 var password = document.getElementById("psw").value;  
   var confirmpassword1 = document.getElementById("psw-repeat").value;  
+ 
+
+
   if(password !== confirmpassword1)  
   {   
     alert("Passwords did not match");

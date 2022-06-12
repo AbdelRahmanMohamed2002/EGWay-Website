@@ -20,40 +20,8 @@ $dbname = "flights";
 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-$query = "SELECT * FROM comments";
+$query = "SELECT * FROM ratings";
 $result = mysqli_query($conn,$query);
  
 
 ?>
-<html>
-<form method="post" action="">
-<table class="table table-hover">
-<thead>
-<tr>
-   
-	<th> Email</th>
-	<th>comment</th>
-</tr>
-</thead>
-<?php
- 
-while($row = mysqli_fetch_array($result)) 
-{
-    
-?>
-<tr>
-
-	<td><?= $row['User Email']; ?></td>
-	<td><?= $row['Comment']; ?></td>
-</tr>
-<?php
- 
-}
-?>
-</table>
- 
-</form>
-
-</body>
-</html>
-</html>

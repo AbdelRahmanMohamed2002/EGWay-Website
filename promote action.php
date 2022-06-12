@@ -82,7 +82,7 @@ $row= mysqli_fetch_array($result);
 </head>
 <body>
 <form name="frmUser" method="post" action="">
-<div><?php if(isset($message)) { echo "<script type='text/javascript'>alert('$message');</script>"; } ?>
+<div><?php if(isset($message)) { echo $message; } ?>
 </div>
 <div style="padding-bottom:5px;">
  

@@ -114,6 +114,7 @@ input[type="submit"] {
 	position: relative;
 	left: 400px;
 }
+
 input[type="submit"]:disabled{
 	background-color: lightgrey;
 }

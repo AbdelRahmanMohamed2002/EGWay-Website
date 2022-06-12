@@ -1,4 +1,7 @@
-  <html>
+ <?php
+ session_start();
+ ?>
+ <html>
 <body>
  <style>
 section{ 
@@ -44,21 +47,7 @@ background-color:white;
 a{
 color:white;
 }
-.hide
-{
-	background-color:transparent;
-	border:none;
-	display: none;
-}
-	 .returnn
-{
-background-color:transparent;
-	border:none;
-	color:black;
-	text-decoration:none;
-	font-size:25px;
-	
-}
+
 </style>
 <form action="main page.php"><button type="submit" class="button">Home</button></form>
 <section >
@@ -73,20 +62,20 @@ background-color:transparent;
   <input type="radio" id="One Way" name="Trip" value="One Way">
   <label for="One Way">One Way</label>
  
-  <input type="radio" id="returnlessthan7" name="Trip" value="returnlessthan7"onclick="before()" >
+  <input type="radio" id="returnlessthan7" name="Trip" value="returnlessthan7" required>
   <label for="Round Trip">return less than 7</label>
   <input type="radio" id="returnafterthan7" name="Trip" value="returnafterthan7">
   <label for="returnafterthan7">return after than 7</label>
  </div>
 <div>
 <label for="Departure Date">Departure Date: </label>
-<input type="date" id="date" name="date" value="date"  min="2020-06-23" max="2020-06-29"required>
+<input type="date" id="date" name="date" value="date" required>
 </div>
 
 
 <div>
 <label for="Departure Date">Return Date: </label>
-<input type="date" id="dat" name="dat" min="2020-06-12" value="dat" required>
+<input type="date" id="dat" name="dat" value="dat" required>
 </div>
 <div>
 <label for="Departure Time" >Departure Time: </label>
@@ -131,15 +120,15 @@ background-color:transparent;
 <div>
 <label for="class" >class: </label> 
 <select name="class" id="class">
-  <option value="1">Business </option>
-  <option value="2"> Best Fare</option>
+  <option value="Business">Business </option>
+  <option value="Best Fare"> Best Fare</option>
   </select>
 </div>
 <div>
 <label for="From" >From: </label>
 <select name="From" id="From">
-  <option value="1"> Loxour </option>
-  <option value="2"> Hurghada</option>
+  <option value="Loxour"> Loxour </option>
+  <option value="Hurghada"> Hurghada</option>
   </select>
 
 </div>
@@ -147,15 +136,8 @@ background-color:transparent;
 <a href="https://www.egyptair.com/en/Documents/ConditionsOfCarriage.pdf">Condition of Carriage</a>
 </div>
 <div>
- <button class="hide" id="btn" ><a  href="visa code.php"  class="button">book</a></button>
-<button type="submit" name="save" value="submit" clas="button" id="save" onclick="myFunction()" >submit</button>
-	<button  class="returnn"  ><a href="mainuser.php" class="returnn">return home</a></button>
-	</div>
- <script>
-function myFunction() {
-  document.getElementById("btn").style.display = "inline-block";
-   
-}
+<a href="visa code.php" class="button">book</a>
+<input type="submit" name="save" value="submit" class="button" >
 </div>
 </form>
 </section>
@@ -165,6 +147,7 @@ function myFunction() {
 if(isset($_POST['save']))
 
 {
+  $email=$_SESSION['EMAIL'];
 $way= $_POST ['Trip'];
 $date=$_POST['date'];
 $dat= $_POST['dat'];
@@ -176,7 +159,7 @@ $infant= $_POST['infant'];
 $class= $_POST['class'];
 $From= $_POST['From'];
 
-$sql = " INSERT INTO `sharm`(`way`, `date`,  `dat`, `Time`, `Tim`, `Adults`, `child`, `infant`, `class`, `From1`,`id`) VALUES ('$way','$date','$dat','$Time','$Tim','$Adults','$child','$infant','$class','$From','')";
+$sql = " INSERT INTO `sharm`(`email`,`way`, `date`,  `dat`, `Time`, `Tim`, `Adults`, `child`, `infant`, `class`, `From1`,`id`) VALUES ('$email','$way','$date','$dat','$Time','$Tim','$Adults','$child','$infant','$class','$From','')";
 
 $run=mysqli_query($con, $sql) or die(mysqli_error($con));
 if ($run) {
@@ -189,25 +172,5 @@ echo "Error: " . $sql . "" . mysqli_error($con);
 mysqli_close($con);
 }
 ?>
-	 <script>
- 
-	 function before() {
-var today = new Date();
-today.setDate(today.getDate() + 7);
-var dd = today.getDate();
-var mm = today.getMonth()+1;  
-var yyyy = today.getFullYear();
-if(dd<10){
-  dd='0'+dd
-} 
-if(mm<10){
-  mm='0'+mm
-} 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("dat").setAttribute("max", today);
-}
-	 
-</script>
 </body>
 </html>

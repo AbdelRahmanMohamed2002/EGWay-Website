@@ -5,13 +5,16 @@ table, th, td {
 
 </style>
 <?php
+
+
+include "qcmenu.php";
 include('header.php');
 //include('menubar.php');
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "flights";
-session_start();
+
 
 // Create connection
 $conn =  mysqli_connect($servername, $username, $password, $dbname);

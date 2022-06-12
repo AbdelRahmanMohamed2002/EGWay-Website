@@ -4,7 +4,7 @@ session_start();
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $DB = "egway";
+        $DB = "flights";
 
 // Create connection
         $conn = mysqli_connect($servername, $username, $password, $DB);
@@ -16,13 +16,13 @@ session_start();
         $in2 = $_POST['reviewBox'];
         $in3=$_SESSION['trip'];
         $in4=$_SESSION['EMAIL'];
-
+        
         $insertion =
         "INSERT INTO Ratings(`email`,`Rate`, `Review`,`trip`)
          VALUES ('$in4','$in1','$in2','$in3')";
 
         if ($conn->query($insertion) == TRUE) {
-            echo "<h2>Rating sent ✓ <br>Keep in mind you can only edit once!<h2>";
+            echo "<h2>Rating sent ✓<h2>";
         }
         else {
             $error = $conn->error;
@@ -34,7 +34,7 @@ session_start();
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $DB = "egway";
+        $DB = "flights";
 
 // Create connection
         $conn = mysqli_connect($servername, $username, $password, $DB);
@@ -53,7 +53,7 @@ session_start();
 
         if ($conn->query($insertion) == TRUE) {
             echo "<h2>Rating sent ✓<h2>";
-            header('Location: http://localhost/Web%20Project%20Stuff/main_user.php');
+            header('Location: http://localhost/project/main_user.php');
         }
         else {
             $error = $conn->error;
@@ -124,15 +124,14 @@ session_start();
             s=0;
             clearInterval(time);
             alert("Time's up, you cannot edit your rating anymore.");
-            if (m == 0 && s == 0) {
-              window.location.href =" http://localhost/Web%20Project%20Stuff/main_user.php";
-            }
+            
+            //window.location.href =" http://localhost/project/main_user.php";
 
           }
       }
       document.getElementById("m").innerHTML = m;
       document.getElementById("s").innerHTML = s;
-
+      
             }
 
 //Aftter rating is done, preview thank you text and edit button

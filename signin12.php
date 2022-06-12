@@ -38,13 +38,24 @@ if ($conn->connect_error) {
     $_SESSION['EMAIL']=$Email;
     $_SESSION['psw']=$Password;
   }
-else if($row['userType']=='2')
+else if($row['userType']=='2'&&$row['status1']=='0')
+  {
+    echo "not Activated";
+    ?> 
+    <html>
+    <form action="signin.php"><button type="submit"  class="button"> Sign in</button></form>
+    </html>
+    <?php
+    
+  }
+  else if($row['userType']=='2'&&$row['status1']=='1')
   {
     header('Location: http://localhost/project/Customer_service.php');
     $_SESSION['EMAIL']=$Email;
     $_SESSION['psw']=$Password;
     
   }
+
   else if($row['userType']=='3')
   { header('Location: http://localhost/project/qc2.php');
    
@@ -52,12 +63,18 @@ else if($row['userType']=='2')
     $_SESSION['EMAIL']=$Email;
     $_SESSION['psw']=$Password;
   }
+  
   else if($row['userType']=='4'&&$row['status1']=='0')
   {
     
-   echo '<script>alert("the account is not activited")</script>';
- 
-   header('Location: http://localhost/project/signin.php');
+  
+    echo "not Activated";
+    ?> 
+    <html>
+    <form action="signin.php"><button type="submit"  class="button"> Sign in</button></form>
+    </html>
+    <?php
+  
   }
 
   else if($row['userType']=='4'&&$row['status1']=='1')
@@ -83,7 +100,17 @@ else if($row['userType']=='2')
   //   $_SESSION['psw']=$Password;
   //   echo"<h1><a href='hurda.php'>airplaneform</a></h1>";
   // }
-
+  else
+  {
+    
+  echo "not registerd";
+  ?> 
+  <html>
+  <form action="signin.php"><button type="submit"  class="button"> Sign in</button></form>
+  </html>
+  <?php
+  }
+  
  
 }
 else
@@ -96,4 +123,6 @@ echo "not registerd";
 </html>
 <?php
 }
+
+
 ?>

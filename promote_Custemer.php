@@ -1,12 +1,3 @@
-<?php
-?>
-<style>
-table, th, td {
-  border: 1px solid black;
-
-}
-
-</style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -20,7 +11,7 @@ $dbname = "flights";
 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-$query = "SELECT * FROM comments";
+$query = "SELECT * FROM user_details WHERE `Usertype`='3'";
 $result = mysqli_query($conn,$query);
  
 
@@ -30,30 +21,23 @@ $result = mysqli_query($conn,$query);
 <table class="table table-hover">
 <thead>
 <tr>
-   
+
 	<th> Email</th>
-	<th>comment</th>
+	<th>First Name</th>
+	<th>Last Name</th>
+    <th>Promote</th>
 </tr>
 </thead>
 <?php
- 
 while($row = mysqli_fetch_array($result)) 
-{
-    
+{    
 ?>
 <tr>
-
-	<td><?= $row['User Email']; ?></td>
-	<td><?= $row['Comment']; ?></td>
+<td><?= $row['Email']; ?></td>
+<td><?= $row['First_Name']; ?></td>
+<td><?=  $row['Last_Name']; ?></td>
+<td><button type="button" ><a href="UpdateAction.php?userid=<?php echo $row["Id"]; ?>">promote</button> </td>
 </tr>
 <?php
- 
 }
 ?>
-</table>
- 
-</form>
-
-</body>
-</html>
-</html>
