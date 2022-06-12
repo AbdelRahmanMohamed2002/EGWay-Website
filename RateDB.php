@@ -22,7 +22,7 @@ session_start();
          VALUES ('$in4','$in1','$in2','$in3')";
 
         if ($conn->query($insertion) == TRUE) {
-            echo "<h2>Rating sent ✓<h2>";
+            echo "<h2>Rating sent ✓ <br>Keep in mind you can only edit once!<h2>";
         }
         else {
             $error = $conn->error;
